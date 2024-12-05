@@ -1,0 +1,113 @@
+%% Load required LaTeX packages
+\usepackage{sectsty}	% Section styling
+\usepackage{xcolor}	% Color and color definitions
+\usepackage{fontspec}	% Load fonts
+\usepackage{fancyhdr}	% Package for setting headers and footers
+\usepackage{paralist}	% Package for correcting spacing in lists
+\usepackage{framed}	% Package for block quote styling
+\usepackage{fancyvrb}	% Package for code block styling
+\usepackage{fvextra}	% Package for wrapping code blocks
+\usepackage{titlesec}	% Sub-sub-sub section styling 
+\usepackage{tcolorbox}	% Warning, Example, and Note block styling
+\usepackage{ragged2e}	% Less strict ragged-right paragraph formatting
+\usepackage{listings}	% Formatting of R code blocks
+\usepackage{longtable} % Long tables... 
+\usepackage{booktabs} % Other table stuffs
+\usepackage{colortbl}    % Color tables
+
+%% Set document font
+\setmainfont{Poppins}[
+	UprightFont = {*-Regular},
+	BoldFont = {*-Bold},
+	ItalicFont = {*-Italic},
+	BoldItalicFont = {*-BoldItalic},
+	Extension = {.ttf}
+]
+
+%% Set line spacing
+\linespread{1.25}
+
+%% Set list spacing
+\let\itemize\compactitem
+\let\enumerate\compactenum\setlength\plpartopsep{-5pt}
+
+%% Define Color Palette
+\definecolor{mgmhwine}{RGB}{89,31,99}
+\definecolor{mgmhdarkblue}{RGB}{57,68,120}
+\definecolor{mgmhgray}{RGB}{120,120,120}
+\definecolor{mgmhyellow}{RGB}{253,185,19}
+
+%% Set Section and Subsection Font Style
+\sectionfont{\color{black}}	% Level 1 [#] headings
+\subsectionfont{\color{mgmhdarkblue}\normalfont}	% Level 2 [##] headings
+\subsubsectionfont{\color{mgmhgray}}	% Level 3 [###] headings
+\titleformat{\paragraph}[hang]{\normalfont\normalsize\color{mgmhgray}}{}{1em}{}	% Level 4 [####] headings
+\titlespacing*{\paragraph}{.5cm}{2\baselineskip}{.66\baselineskip}		% Level 4 [####] headings continued
+
+%% Header and Footer Defined
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[R]{ \color{mgmhyellow}{\textbar}\color{mgmhwine}{ \thepage}}
+\fancyfoot[L]{{\footnotesize\color{mgmhwine}{This cover letter created with R and LaTeX. \\ See the source code at }\color{RoyalPurple}{https://github.com/mgmhughes/resume}\normalfont}}
+
+%% New verbatim and quote environments
+% Block Quotes Defined
+\let\oldquote=\quote
+\let\endoldquote=\endquote
+\renewenvironment{quote}{
+	\colorlet{shadecolor}{mgmhwine!8}
+	\begin{shaded*}
+	\begin{oldquote}\itshape%
+}{%
+	\end{oldquote}%
+	\end{shaded*}%
+}
+
+% Non-Evaluated Code Block Quotes Defined
+\DefineVerbatimEnvironment{Verbatim}{Verbatim}{
+	showspaces = false,
+	showtabs = false,
+	breaklines
+}
+
+\renewenvironment{verbatim}{%
+	\VerbatimEnvironment
+	\colorlet{shadecolor}{mgmhyellow!8}
+	\begin{shaded*}
+	\begin{Verbatim}}{%
+	\end{Verbatim}%
+	\end{shaded*}%
+}
+
+
+% Evaluated Code Block Quotes Defined
+% Rest of the highlighting environment defined in the mpstheme.theme file
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+	showspaces = false,
+	showtabs = false,
+	breaklines,
+	commandchars=\\\{\}
+}
+
+%% Call-out box definitions
+% Special Box defined
+\newtcbox{\specbox}[1]{
+	tcbox width=auto limited,
+	grow to left by=-1cm,
+	grow to right by=-1cm,
+	colback=mgmhwine!5!white,
+	colframe=mgmhwine!75!black,
+	fonttitle=\bfseries,
+	title={#1}}
+
+%% Set \AtBeginDocument arguments
+% Remove the default title/author/date block
+\AtBeginDocument{\let\maketitle\relax}
+
+% Set Ragged Right paragraph justification
+\AtBeginDocument{\RaggedRight}
+
+%% Set nohyphenation 
+\hyphenpenalty=10000
+\hbadness=10000

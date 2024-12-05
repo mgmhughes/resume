@@ -1,0 +1,130 @@
+---
+title: "Morrigan Hughes Cover Letter"
+author: "Morrigan Hughes"
+date: 'r Sys.Date()'
+output: 
+  pdf_document:
+    latex_engine: lualatex
+header-includes:
+  - \input{preamble_coverletter.tex}
+urlcolor: black
+params:
+  orgname:  "" # Organization name
+  orgaddr:  "" # Organization address
+  orgcity:  "" # Organization city, state, and zip
+  mgrname:  "" # Full name of hiring manager, if known. Leave blank if not.
+  mgrtitle: "" # Full title of hiring manager, if known. Leave blank if not.
+  mgrtitls: "" # Short title of hiring manager [e.g. 'Senior Officer' instead of 'Senior Officer of Finance and Operations']
+  postitle: "" # Position applying for
+  
+---
+```{r setup-chunk, include=FALSE}
+## Knitr Chunk Options
+# Add number lines to source code blocks
+knitr::opts_hooks$set(
+  numberLines = function(options) {
+    attrs <- paste0("attr.", options$numberLines)
+    options[attrs] <- lapply(options[attrs], c, ".numberLines")
+    options
+  }
+)
+
+# Rest of the knitr chunk options
+knitr::opts_chunk$set(
+  numberLines = "source",
+  echo = FALSE,
+  fig.align = "center",
+  dev = "png",
+  dpi = 300
+)
+
+# Load RData with contact information
+load("contact.RData")
+
+# Load required packages
+library(knitr)
+library(kableExtra)
+library(dplyr)
+library(stringr)
+```
+```{r params-adjustments}
+# If the hiring manager's name isn't known, change to 'Hiring Manager'
+mgrname <- ifelse(params$mgrname == "", "Hiring Manager", params$mgrname)
+
+# Create the dear/to line
+dearline <- 
+  paste(
+    "Dear",
+    case_when(
+      params$mgrtitls == "" ~ "",
+      TRUE ~ params$mgrtitls
+    ),
+    case_when(
+      mgrname == "Hiring Manager" ~ mgrname,
+      TRUE ~ str_extract(params$mgrname, "[[:alpha:]]{1,}$")
+    )
+  )
+```
+```{r req-exp-match}
+##'* IMPORTANT *
+##'* Remove this chunk if you want a more narrative cover letter than a direct comparison of requirements to experience *
+##'* IMPORTANT *
+
+# Create the requirements vs. experience tibble
+experience <- tibble(
+  # Enter the requirements from the job posting here
+  requirement = c(
+    "requirement 1",
+    "requirement 2",
+    "requirement 3"
+  ),
+  # Enter how experience matches those requirements here
+  experience  = c(
+    "matching experience 1",
+    "matching experience 2",
+    "matching experience 3"
+  )
+)
+
+# Transform the tibble into a kable
+experience_kable <- experience %>% 
+  rename(
+    'Your Requirements' = requirement,
+    'My Experience'     = experience
+  ) %>% 
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    align = "ll",
+    linesep = "",
+    escape = FALSE
+  ) %>% 
+  kable_styling(
+    font_size = 8.5,
+    stripe_color = "mgmhwine!10",
+    latex_options = c("HOLD_position", "striped")
+  ) %>% 
+  row_spec(row = 0, color = "#591f63", align = "c")
+```
+\small
+Morrigan G.M. Hughes \newline
+`r phone` \newline
+`r email` \newline
+
+\vspace{10pt}
+`r format(Sys.Date(), "%d %B, %Y")`
+\vspace{10pt}
+
+`r mgrname` \newline
+`r params$mgrtitle` \newline
+`r params$orgname` \newline
+`r params$orgaddr` \newline
+`r params$orgcity` \newline\vspace{10pt}
+
+`r dearline`,
+
+My name is Morrigan Hughes, and I'm writing to you today to apply for the open `r params$postitle` position with `r params$orgname`. With over 15 years experience in data analytics, data science, and quantitative and qualitative research methodologies, as well as more than 5 years experience directly leading and managing teams of skilled professionals, I believe I would be an excellent fit as your new `r params$postitle`. 
+
+<!-- Comment out the below line if you want a more narrative cover letter -->
+`r experience_kable`
+<!-- write the rest of the cover letter below -->
