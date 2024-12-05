@@ -1,0 +1,168 @@
+---
+title: "Morrigan Hughes Resume"
+author: "Morrigan Hughes"
+date: 'r Sys.Date()'
+output: 
+  pdf_document:
+    latex_engine: lualatex
+header-includes:
+  - \input{preamble_resume.tex}
+urlcolor: RoyalPurple
+---
+```{r setup-chunk, include=FALSE}
+# Load RData with contact information
+load("contact.RData")
+```
+\vspace{-20pt}
+\begin{center}
+\huge\textbf{Morrigan G.M. Hughes}\normalfont
+\end{center}
+\vspace{-10pt}
+\begin{minipage}{0.35\textwidth}
+\begin{center}
+\textit{\color{mgmhgray}{ph: }}\fontspec{Poppins SemiBold}\text{\color{mgmhwine}{`r phone`}}
+\normalfont\end{center}
+\end{minipage}
+\begin{minipage}{0.65\textwidth}
+\begin{center}
+\textit{\color{mgmhgray}{em: }}\fontspec{Poppins SemiBold}\text{\color{mgmhwine}{`r email`}}
+\normalfont\end{center}
+\end{minipage}
+
+\vspace{-20pt}
+# Professional Summary
+\vspace{-10pt}\small
+Accomplished Senior Data Scientist with 10 years of experience leveraging R, geographic information systems, and big data to generate actionable insights and data-driven recommendations. Led teams of cross-functional professionals in initiatives targeting efficiency, solutions-focused decision making, and best practices standardization across divisions. Highly skilled in technical communication to both technical and non-technical audiences at all levels, from individual contributors to senior leadership, board directors, and the public.
+
+\vspace{-20pt}
+# Professional Experience
+\vspace{-15pt}
+\begin{minipage}{0.5\textwidth}
+\large\textbf{\color{mgmhwine}{Senior Data Scientist}}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\flushright\textbf{\color{mgmhwine}{2019-09 --- Present}}
+\end{minipage}
+
+\vspace{-20pt}
+### Minneapolis Public Schools
+\vspace{-10pt}
+Originally hired as the sole Data Scientist for the Operations Division. Brought on board to modernize data handling, retention, and analysis of Operations Departments. In 2022, the Operations and Finance Divisions merged and Finance data was added to the Data Scientist profile. In 2024, a reorganization led to a shift in focus from divisional data to Strategic Planning and Initiatives for the district.
+
+\vspace{2pt}
+*   Developed district-wide dashboard as part of the School Transformation process which included data from across the district and looked at a time span of the previous five to ten years. Dashboard is available for viewing to the public here: https://www.mpschools.org/about-mps/data-dashboard
+*   Directed process standardization between the Strategic Data Analytics department and the Research department for better collaboration; trained Research department on Git and GitHub, version control, and building and using R projects to keep code libraries in an organized fashion. 
+*   Developed custom R package which introduced new R, LaTeX, and HTML functions to bring all Data Analytics and Research Department Data Scientists into compliance with MPS branding requirements. R Package is publicly available here: https://github.com/mpsofda/mpstheme
+*   Worked with available data to create internal auditing processes to determine if select policies or programs utilized by the Division have had a disparate impact on any marginalized groups.
+*   Did all in-house boundary study analytics using a combination of R, ArcGIS, and Python. Built more than 240 variations on the boundaries based on senior leadership requests, stakeholder meetings, and public comments. In-house work saved the district upwards of $500,000 in consultancy fees.
+*   Developed four dozen Tableau dashboards with automatic, scripted updates for all departments within the Division. Dashboards allowed senior and mid-level management to understand the bottlenecks in their own departments. 
+*   Worked with leadership to develop and implement processes and procedural improvements to increase efficiency and/or service level.
+*   Responsible for recruiting, hiring, training, and supervision of technical professionals.
+*   Responsible for mentorship of new Data Scientists in the Research Department.
+
+\vspace{5pt}
+\begin{minipage}{0.5\textwidth}
+\large\textbf{\color{mgmhwine}{Analytics Consultant}}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\flushright\textbf{\color{mgmhwine}{2017-01 --- 2019-08}}
+\end{minipage}
+
+\vspace{-20pt}
+### LW Group, M. Hughes Consulting
+\vspace{-10pt}
+Analytics consultant for both a national consulting group and self-employed consulting contracts. Frequently brought in to identify better methodologies for data collection, retention, and stewardship. Provided expert analysis to locate bottlenecks in production or processes and increase market retention and conversion.
+
+\vspace{2pt}
+*   Worked with international technology firm to identify and solidify best practices. Overall savings achieved approximately 20 labor-hours per week and \$3 million in materials per year per location.
+*   Worked with national vocational education groups and grew educational revenue from an average of \$4,700 per week per location to average of \$9,800 via a multitude of process and program improvement plans and better market analysis research methodologies.
+*   Assisted multiple organizations with process improvement and implementation of continuous improvement and efficiency practices.
+*   Handled multiple technical program development initiatives and full life cycle implementations.
+*   Worked with C-level executive leadership teams to identify best practices found during internal process analysis through various company buy-outs and mergers.
+
+\vspace{5pt}
+\begin{minipage}{0.5\textwidth}
+\large\textbf{\color{mgmhwine}{Program Manager}}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\flushright\textbf{\color{mgmhwine}{2007-08 --- 2017-01}}
+\end{minipage}
+
+\vspace{-20pt}
+### Minnesota School of Professional Psychology
+\vspace{-10pt}
+Program Manager for the Doctorate of Psychology in Clinical Psychology program. Brought in to apply management and efficiency experience to program concerns. Also handled all military and veteran student affairs for all programs in the university.
+
+\vspace{2pt}
+*   Developed dashboard program for data management, tracking, and reporting for all relevant metrics within the program. Reduced administrative workload by 60% in two months post-deployment.
+*   Developed and launched new systems for automatic data gathering and retrieval for use in mandated reporting complying with regulatory requirements.
+*   Responsible for recruiting, hiring, training, and supervision of technical and non-technical staff and student workers.
+*   Implemented new training and educational goals and curricula for staff who desired to increase their knowledge base and expertise. Developed training testing and evaluation programs to verify training effectiveness and modified training courses as necessary.
+*   Coached schools which struggled to meet VA requirements at the request of governmental agencies on best practices.
+
+\vspace{5pt}
+\begin{minipage}{0.5\textwidth}
+\large\textbf{\color{mgmhwine}{Adjunct Professor}}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\flushright\textbf{\color{mgmhwine}{2011-01 --- 2016-12}}
+\end{minipage}
+
+\vspace{-20pt}
+### Argosy University
+\vspace{-10pt}
+
+*   Taught up to five courses per semester in computer sciences, mathematics, and statistics.
+
+\vspace{-17pt}
+# Education
+\vspace{-15pt}
+\begin{minipage}{0.5\textwidth}
+\large\textbf{\color{mgmhwine}{Masters of Business Administration}}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\flushright\textbf{\color{mgmhwine}{2016}}
+\end{minipage}
+
+\vspace{-20pt}
+### Argosy University
+
+\vspace{-10pt}
+\begin{minipage}{0.5\textwidth}
+\large\textbf{\color{mgmhwine}{BS, Business Administration}}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\flushright\textbf{\color{mgmhwine}{2011}}
+\end{minipage}
+
+\vspace{-20pt}
+### Argosy University
+
+\specbox{Skills, Software, and Languages}{
+\begin{minipage}{0.6\textwidth}
+\textbullet \hspace{5pt} Data Analytics \& Visualization
+
+\textbullet \hspace{5pt} Geographic Information Systems [GIS]
+
+\textbullet \hspace{5pt} Process Design
+
+\textbullet \hspace{5pt} Statistics \& Predictive Modeling
+
+\textbullet \hspace{5pt} Teaching \& Mentoring
+
+\textbullet \hspace{5pt} Training \& Development
+
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\textbullet \hspace{5pt} ArcGIS
+
+\textbullet \hspace{5pt} LaTeX
+
+\textbullet \hspace{5pt} R \& R Package Development
+
+\textbullet \hspace{5pt} SQL
+
+\textbullet \hspace{5pt} Tableau
+
+\end{minipage}
+}
